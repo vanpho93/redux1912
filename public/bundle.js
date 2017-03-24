@@ -21709,25 +21709,24 @@ var reducer = function reducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { money: 100, gold: 10 };
     var action = arguments[1];
 
-    if (action.type === 'ADD_MONEY') return _extends({}, state, { money: state.money + 1 });
-    // if (action.type === 'ADD_MONEY') {
-    //     state.money++;
-    //     return state;
-    // }
-    return state;
+    switch (action.type) {
+        case 'ADD_GOLD':
+            return _extends({}, state, { gold: state.gold + 1 });
+        case 'ADD_MONEY':
+            return _extends({}, state, { money: state.money + 1 });
+        default:
+            return state;
+    }
 };
 
 var store = redux.createStore(reducer);
 
 store.dispatch({ type: 'ADD_MONEY' });
+store.dispatch({ type: 'ADD_GOLD' });
+store.dispatch({ type: 'ADD_MONEY' });
+store.dispatch({ type: 'ADD_GOLD' });
 
 console.log(store.getState());
-
-/*
-    reducer -> pure function
-    store -> 
-    state -> Trang thai 
-*/
 
 /***/ }),
 /* 178 */
