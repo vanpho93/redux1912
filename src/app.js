@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+const redux = require('redux');
+
 ReactDOM.render(
     <p>Helo</p>,
     document.getElementById('root')
@@ -8,9 +10,16 @@ ReactDOM.render(
 
 // spread operator
 
-const a = { name: 'Pho' };
-const b = { height: 180, ...a, age: 18 };
+const reducer = (state = { money: 100 }, action) => {
+    return state;
+};
 
-const c = [1, 3, 5, 7];
-const d = [0, ...c, 9];
-console.log(d);
+const store = redux.createStore(reducer);
+
+console.log(store.getState());
+
+/*
+    reducer -> pure function
+    store -> 
+    state -> Trang thai 
+*/
