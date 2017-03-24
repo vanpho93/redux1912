@@ -10,11 +10,18 @@ ReactDOM.render(
 
 // spread operator
 
-const reducer = (state = { money: 100 }, action) => {
+const reducer = (state = { money: 100, gold: 10 }, action) => {
+    if (action.type === 'ADD_MONEY') return { ...state, money: state.money + 1 };
+    // if (action.type === 'ADD_MONEY') {
+    //     state.money++;
+    //     return state;
+    // }
     return state;
 };
 
 const store = redux.createStore(reducer);
+
+store.dispatch({ type: 'ADD_MONEY' });
 
 console.log(store.getState());
 
