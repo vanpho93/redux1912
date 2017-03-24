@@ -21704,11 +21704,11 @@ _reactDom2.default.render(_react2.default.createElement(
 // spread operator
 
 var a = { name: 'Pho' };
-var b = _extends({}, a);
-a.name = 'SOn';
+var b = _extends({ height: 180 }, a, { age: 18 });
 
-console.log(b);
-console.log(a);
+var c = [1, 3, 5, 7];
+var d = [0].concat(c, [9]);
+console.log(d);
 
 /***/ })
 /******/ ]);

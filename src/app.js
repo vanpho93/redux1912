@@ -9,8 +9,8 @@ ReactDOM.render(
 // spread operator
 
 const a = { name: 'Pho' };
-let b = { ...a };
-a.name = 'SOn';
+const b = { height: 180, ...a, age: 18 };
 
-console.log(b);
-console.log(a);
+const c = [1, 3, 5, 7];
+const d = [0, ...c, 9];
+console.log(d);
