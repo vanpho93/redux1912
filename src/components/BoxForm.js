@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class BoxForm extends Component {
+class BoxForm extends Component {
     constructor(props) {
         super(props);
         this.state = { value: 0 };
     }
-    handleAdd() {
-        const { parent } = this.props;
-        parent.state.value ++;
-        parent.setState(parent.state);
+    add() {
+        const { dispatch } = this.props;
+        dispatch({ type: 'ADD_VALUE' });
     }
     render() {
         return (
             <div>
-                <button onClick={this.handleAdd.bind(this)}>Hard add</button>
+                <button onClick={this.add.bind(this)}>Hard add</button>
             </div>
         );
     }
 }
+
+module.exports = connect()(BoxForm);

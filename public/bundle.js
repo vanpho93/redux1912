@@ -22832,8 +22832,9 @@ var Box = function (_Component) {
     _createClass(Box, [{
         key: 'add',
         value: function add() {
-            this.state.value++;
-            this.setState(this.state);
+            var dispatch = this.props.dispatch;
+
+            dispatch({ type: 'ADD_VALUE' });
         }
     }, {
         key: 'render',
@@ -22870,15 +22871,13 @@ module.exports = (0, _reactRedux.connect)(function (state) {
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(80);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(207);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22901,12 +22900,11 @@ var BoxForm = function (_Component) {
     }
 
     _createClass(BoxForm, [{
-        key: 'handleAdd',
-        value: function handleAdd() {
-            var parent = this.props.parent;
+        key: 'add',
+        value: function add() {
+            var dispatch = this.props.dispatch;
 
-            parent.state.value++;
-            parent.setState(parent.state);
+            dispatch({ type: 'ADD_VALUE' });
         }
     }, {
         key: 'render',
@@ -22916,7 +22914,7 @@ var BoxForm = function (_Component) {
                 null,
                 _react2.default.createElement(
                     'button',
-                    { onClick: this.handleAdd.bind(this) },
+                    { onClick: this.add.bind(this) },
                     'Hard add'
                 )
             );
@@ -22926,7 +22924,7 @@ var BoxForm = function (_Component) {
     return BoxForm;
 }(_react.Component);
 
-exports.default = BoxForm;
+module.exports = (0, _reactRedux.connect)()(BoxForm);
 
 /***/ }),
 /* 202 */

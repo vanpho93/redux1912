@@ -4,8 +4,8 @@ import BoxForm from './BoxForm';
 
 class Box extends Component {
     add() {
-        this.state.value++;
-        this.setState(this.state);
+        const { dispatch } = this.props;
+        dispatch({ type: 'ADD_VALUE' });
     }
 
     render() {
